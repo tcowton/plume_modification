@@ -60,7 +60,7 @@ plume_parameters % load other parameters
 
 d_gl = 250; % grounding line depth (m)
 
-resn_threshold = 1e-5; % threshold for residuals for mixing model (sum of squares)
+resn_threshold = 1e-2; % threshold for residuals for mixing model (sum of squares)
 
 zfrac = 5:10:max(z.f); % depth intervals for mixing model
 zbin = 0:10:max(z.f); % depth bands for cumulative plume fluxes
