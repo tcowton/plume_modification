@@ -80,8 +80,24 @@ for j = 1:length(xf)
 
     if ~isnan(T4) 
        
-        A = [T2,T4;S2,S4;1,1];
-        B = [T1;S1;1];
+        % normalise temperature and salinity values based on range to non-
+        % dimensionalise equations
+
+        Tmax = max([T1,T2,T4]);
+        Tmin = min([T1,T2,T4]);
+        Smax = max([S1,S2,S4]);
+        Smin = min([S1,S2,S4]);
+
+        T1n = (T1-Tmin)/(Tmax-Tmin);
+        T2n = (T2-Tmin)/(Tmax-Tmin);
+        T4n = (T4-Tmin)/(Tmax-Tmin);
+
+        S1n = (S1-Smin)/(Smax-Smin);
+        S2n = (S2-Smin)/(Smax-Smin);
+        S4n = (S4-Smin)/(Smax-Smin);
+
+        A = [T2n,T4n;S2n,S4n;1,1];
+        B = [T1n;S1n;1];
         
         [X,resn(j),resi(j,:)] = lsqlin(A,B,-ones(size(A)),zeros(size(B)),[],[],[0 0],[1 1]); % limit fm and fs to lie between 0 and 1, and fs+fm = 1
 
