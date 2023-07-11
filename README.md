@@ -4,6 +4,8 @@ These scripts relate to a plume and mixing model for glacial fjords, created as 
 
 Cowton T, D Slater & M Inall (2023). Subglacial-discharge plumes drive widespread subsurface warming in northwest Greenland’s fjords. Geophysical Research Letters (accepted July 2023).
 
+Together, the scripts run a numerical plume model (forced by subglacial discharge and ambient water profiles), then use the plume and ambient water properties to calculate the fraction of plume modified water present in the fjord. For further information, please see the above publication.
+
 The script workflow_example.m runs through the functions required to calculate subglacial-discharge plume
 fluxes and water fractions for a given fjord and year based CTD and
 runoff inputs
